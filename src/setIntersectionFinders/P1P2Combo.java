@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 public class P1P2Combo extends AbstractIntersectionFinder {
 
-	Object[][][] dataPack;
+	Object[][] dataFiles;
 	
 
 	public P1P2Combo(String name) {
@@ -23,12 +23,22 @@ public class P1P2Combo extends AbstractIntersectionFinder {
 		return null;
 	}
 
-	public Object[] setGenerator() throws FileNotFoundException {
+	public Object[] setGenerator(Object [][][] dataSet) throws FileNotFoundException {
 		
-		DataReader dataReader = new DataReader();
-	    dataPack = dataReader.readDataFiles();
+		dataFiles = new Object[dataSet.length][dataSet[0].length];
+		for (int i = 0; i < dataSet.length; i++)
+		{
+			for(int j = 0; j < dataSet[0].length; j++)
+			{
+				dataFiles[i][j] = new Set1<Integer>();
+				  for (int k = 0; k < dataSet[i][j].length; k++)
+				  {
+					 // Set1<Integer> dataSet = dataFiles[j].add(dataSet[i][j][k]); 
+				  }
+			}
+		}
 		
-		return dataPack;
+		return null;
 
 	}
 }
